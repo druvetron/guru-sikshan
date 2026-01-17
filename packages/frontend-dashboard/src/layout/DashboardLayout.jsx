@@ -1,16 +1,15 @@
+import Sidebar from "../components/Sidebar";
+import Topbar from "../components/Topbar";
+
 export default function DashboardLayout({ children }) {
   return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
-      <aside style={{ width: "220px", background: "#0f172a", color: "white", padding: "16px" }}>
-        <h3>Guru Sikshan</h3>
-        <p>Dashboard</p>
-        <p>Modules</p>
-        <p>Feedback</p>
-      </aside>
+    <div style={{ display: "flex", height: "100vh", background: "#121212" }}>
+      <Sidebar />
 
-      <main style={{ flex: 1, padding: "24px" }}>
-        {children}
-      </main>
+      <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+        <Topbar />
+        <main style={{ flex: 1 }}>{children}</main>
+      </div>
     </div>
   );
 }

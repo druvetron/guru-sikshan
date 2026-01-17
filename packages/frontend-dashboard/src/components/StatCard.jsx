@@ -1,13 +1,15 @@
 export default function StatCard({ title, value }) {
   return (
-    <div style={{
-      background: "#e2e8f0",
-      padding: "20px",
-      borderRadius: "12px",
-      minWidth: "180px"
-    }}>
-      <h4>{title}</h4>
-      <h2>{value}</h2>
+    <div
+      style={{
+        background: "#1f1f1f",
+        padding: "16px",
+        borderRadius: "10px",
+        color: "white",
+      }}
+    >
+      <p style={{ opacity: 0.7 }}>{title}</p>
+      <h2 style={{ fontSize: "22px", marginTop: "8px" }}>{value}</h2>
     </div>
   );
 }
