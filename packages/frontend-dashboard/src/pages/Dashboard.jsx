@@ -1,6 +1,6 @@
 import DashboardLayout from "../layout/DashboardLayout";
 import StatCard from "../components/StatCard";
-
+import React from "react";
 export default function Dashboard() {
   return (
     <DashboardLayout>
