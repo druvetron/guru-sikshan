@@ -2,7 +2,7 @@ import axios from 'axios';
 
 //for testing on phone , change api url
 //ip addr show | grep inet
-const API_URL = 'http://x.x.x.x:3000/api'; 
+const API_URL = 'http://192.168.1.16:3000/api'; 
 export interface Feedback {
   teacher_id: string;
   issue: string;
