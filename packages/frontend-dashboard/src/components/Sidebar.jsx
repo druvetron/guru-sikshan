@@ -1,33 +1,40 @@
+// src/components/Sidebar.jsx
 import React from "react";
-export default function Sidebar() {
+import { NavLink } from "react-router-dom";
+
+const Sidebar = () => {
+  const linkStyles = ({ isActive }) => ({
+    display: "block",
+    padding: "10px 20px",
+    margin: "5px 0",
+    textDecoration: "none",
+    color: isActive ? "#fff" : "#333",
+    backgroundColor: isActive ? "#007bff" : "transparent",
+    borderRadius: "5px",
+  });
+
   return (
-    <aside style={styles.sidebar}>
+    <div
+      className="sidebar"
+      style={{
+        width: "200px",
+        height: "100vh",
+        background: "#f5f5f5",
+        padding: "20px",
+      }}
+    >
       <h2>Guru Sikshan</h2>
-
-      <nav>
-        <ul style={styles.list}>
-          <li>📊 Dashboard</li>
-          <li>👩‍🏫 Teachers</li>
-          <li>🎓 Students</li>
-          <li>📝 Feedback</li>
-        </ul>
-      </nav>
-    </aside>
+      <NavLink to="/dashboard" style={linkStyles}>
+        Dashboard
+      </NavLink>
+      <NavLink to="/teachers" style={linkStyles}>
+        Teachers
+      </NavLink>
+      <NavLink to="/feedback" style={linkStyles}>
+        Feedback
+      </NavLink>
+    </div>
   );
-}
-
-const styles = {
-  sidebar: {
-    width: "220px",
-    minHeight: "100vh",
-    background: "#0f172a",
-    color: "#fff",
-    padding: "20px",
-  },
-  list: {
-    listStyle: "none",
-    padding: 0,
-    lineHeight: "2.2rem",
-    cursor: "pointer",
-  },
 };
+
+export default Sidebar;
