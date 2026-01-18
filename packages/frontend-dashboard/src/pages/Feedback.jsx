@@ -1,21 +1,68 @@
+// src/pages/Feedback.jsx
 import React, { useState } from "react";
-import DashboardLayout from "../layout/DashboardLayout"; // Import the layout
+import DashboardLayout from "../layout/DashboardLayout";
 
 const Feedback = () => {
-  const [feedbacks] = useState([
-    { id: 1, name: "Arjun Mehta", school: "GHS Bangalore", text: "Intuitive training modules.", date: "Jan 18" },
-    { id: 2, name: "Priya Das", school: "DIET Primary", text: "Need more Science content.", date: "Jan 17" },
-  ]);
+  const [feedback, setFeedback] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Feedback submitted successfully!");
+    setFeedback("");
+  };
 
   return (
     <DashboardLayout>
-      <div className="p-8 bg-black min-h-screen text-white font-sans">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold mb-8">Teacher : module-feedback</h1>
-          <div className="border border-gray-800 rounded-lg overflow-hidden bg-[#111]">
-            
+      <div style={{ marginBottom: "30px" }}>
+        <h1 style={{ margin: 0, color: "#000" }}>Platform Feedback</h1>
+        <p style={{ color: "#666" }}>Help us improve the Guru Sikshan experience</p>
+      </div>
+
+      <div style={{ 
+        backgroundColor: "#fff", 
+        padding: "40px", 
+        borderRadius: "20px", 
+        boxShadow: "0 10px 25px rgba(0,0,0,0.05)",
+        maxWidth: "600px" 
+      }}>
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          <div>
+            <label style={{ display: "block", marginBottom: "8px", fontWeight: "bold" }}>Subject</label>
+            <select style={{ width: "100%", padding: "12px", borderRadius: "8px", border: "1px solid #ddd" }}>
+              <option>Dashboard Performance</option>
+              <option>Updated modules</option>
+              <option>Module Suggestion</option>
+            </select>
           </div>
-        </div>
+
+          <div>
+            <label style={{ display: "block", marginBottom: "8px", fontWeight: "bold" }}>Your Message</label>
+            <textarea 
+              rows="5"
+              value={feedback}
+              onChange={(e) => setFeedback(e.target.value)}
+              placeholder="Type your feedback here..."
+              style={{ width: "100%", padding: "12px", borderRadius: "8px", border: "1px solid #ddd", fontFamily: "inherit" }}
+              required
+            />
+          </div>
+
+          <button type="submit" style={{
+            padding: "12px",
+            borderRadius: "8px",
+            border: "none",
+            backgroundColor: "#003d82",
+            color: "white",
+            fontSize: "1rem",
+            fontWeight: "bold",
+            cursor: "pointer",
+            alignSelf: "flex-start",
+            paddingLeft: "30px",
+            paddingRight: "30px"
+          }}>
+            Submit Feedback
+          </button>
+        </form>
       </div>
     </DashboardLayout>
   );
