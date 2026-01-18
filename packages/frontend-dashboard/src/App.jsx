@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Dashboard from "./pages/Dashboard";
 import Teachers from "./pages/Teachers";
 import Feedback from "./pages/Feedback";
-import Login from "./pages/Login"; //login page
+import Login from "./pages/Login";
+import UploadModules from "./pages/UploadModules"; // New Import
 
 // Simple Auth Guard
 const ProtectedRoute = ({ children }) => {
@@ -17,7 +18,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Public Route - Corrected to render the Component */}
+        {/* Public Route */}
         <Route path="/login" element={<Login />} />
 
         {/* Root Redirect */}
@@ -31,6 +32,10 @@ const App = () => {
         <Route 
           path="/teachers" 
           element={<ProtectedRoute><Teachers /></ProtectedRoute>} 
+        />
+        <Route 
+          path="/upload-modules" 
+          element={<ProtectedRoute><UploadModules /></ProtectedRoute>} 
         />
         <Route 
           path="/feedback" 

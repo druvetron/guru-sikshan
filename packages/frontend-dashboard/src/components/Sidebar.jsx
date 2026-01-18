@@ -9,6 +9,7 @@ const Sidebar = () => {
     { name: "Dashboard", path: "/dashboard" },
     { name: "Teachers", path: "/teachers" },
     { name: "Feedback", path: "/feedback" },
+    { name : "Upload Module", path : "/upload-modules"},
   ];
 
   return (
